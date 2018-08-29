@@ -4,15 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 import br.com.fabricio.api.security.entities.Usuario;
 import br.com.fabricio.api.security.enums.PerfilEnum;
 import br.com.fabricio.api.security.repositories.UsuarioRepository;
+import br.com.fabricio.api.services.ExemploCacheService;
 import br.com.fabricio.api.utils.SenhaUtils;
 
 @SpringBootApplication
+@EnableCaching
 public class SringBootTokenJwtApplication {
+	
+	@Autowired
+	private ExemploCacheService exemploCacheService;
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -36,6 +42,15 @@ public class SringBootTokenJwtApplication {
 			admin.setPerfil(PerfilEnum.ROLE_ADMIN);
 			admin.setSenha(SenhaUtils.gerarBCrypt("123456"));
 			this.usuarioRepository.save(admin);
+			
+			
+			
+			System.out.println("Executando o serviço pela primeira vez: ");
+			System.out.println(exemploCacheService.exemploCache());
+			
+			
+			System.out.println("Executando o serviço pela segunda vez: ");
+			System.out.println(exemploCacheService.exemploCache());
 			
 		};
 	}
