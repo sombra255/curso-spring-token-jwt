@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import br.com.fabricio.api.security.entities.Usuario;
 import br.com.fabricio.api.security.enums.PerfilEnum;
 import br.com.fabricio.api.security.repositories.UsuarioRepository;
-import br.com.fabricio.api.services.ExemploCacheService;
+import br.com.fabricio.api.security.services.ExemploCacheService;
 import br.com.fabricio.api.utils.SenhaUtils;
 
 @SpringBootApplication
