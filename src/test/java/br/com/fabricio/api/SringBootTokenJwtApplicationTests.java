@@ -11,7 +11,7 @@ public class SringBootTokenJwtApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		System.out.println("Teste");
+		System.out.println("Teste123");
 	}
 
 }
